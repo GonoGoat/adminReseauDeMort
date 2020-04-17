@@ -1,0 +1,21 @@
+#/etc/bind/zones
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     wt1-9.ephec-ti.be. admin.wt1-9.ephec-ti.be. (
+                              5         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+
+; Name servers
+        IN      NS      ns.wt1-9.ephec-ti.be.
+
+; PTR records
+2       IN      PTR     ns.wt1-9.ephec-ti.be.
+3       IN      PTR     www.wt1-9.ephec-ti.be.
+3       IN      PTR     b2b.wt1-9.ephec-ti.be
+
