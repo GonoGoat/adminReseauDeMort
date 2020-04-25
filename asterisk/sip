@@ -1,0 +1,58 @@
+[general]
+language=fr
+allow=alaw
+allow=ulaw
+;context=ouvrier
+;context=comptable
+;context=commerciaux
+;context=direction
+domain=woodytoys.be
+[atelier]
+type=user
+context=ouvrier
+secret=atelier
+host=dynamic
+callerid= "atelier" <301>
+
+[hangar]
+type=user
+context=ouvrier
+secret=hangar
+host=dynamic
+callerid= "hangar" <302>
+
+[secretaire]
+type=friend
+secret=secretaire
+host=dynamic
+callerid= "secretaire" <401>
+
+[bureaucomptable1]
+type=friend
+context=comptable
+secret=bc1
+host=dynamic
+callerid= "bureaucomptable1" <501>
+
+[bureaucomptable2]
+type=friend
+context=comptable
+secret=bc2
+host=dynamic
+callerid= "bureaucomptable2" <502>
+
+
+[commerciaux]
+type=friend
+context=commerciaux
+secret=commerciaux
+host=dynamic
+callerid= "commerciaux" <601>
+
+[direction]
+type=friend
+context=direction
+secret=direction
+host=dynamic
+callerid= "direction" <701>
+

@@ -1,0 +1,114 @@
+[general]
+
+
+
+[ouvrier]
+
+exten => 100,1,noOp(test)
+exten => 100,2,Hangup
+
+exten => 401,1,Answer
+exten => 401,2,Dial(SIP/secretaire)
+exten => 401,3,Voicemail(401)
+exten => 401,4,Hangup
+
+exten => 501,1,Answer
+exten => 501,2,Dial(SIP/bureaucomptable1)
+exten => 501,3,Hangup
+
+exten => 601,1,Answer
+exten => 601,2,Dial(SIP/commerciaux)
+exten => 601,3,Hangup
+
+[comptable]
+
+exten => 301,1,Answer
+exten => 301,2,Dial(SIP/atelier)
+exten => 301,3,Hangup
+
+exten => 302,1,Answer
+exten => 302,2,Dial(SIP/hangar)
+exten => 302,3,Hangup
+
+exten => 601,1,Answer
+exten => 601,2,Dial(SIP/commerciaux)
+exten => 601,3,Hangup
+
+exten => 401,1,Answer
+exten => 401,2,Dial(SIP/secretaire)
+exten => 401,3,Voicemail(401)
+exten => 401,4,Hangup
+
+
+[commerciaux]
+
+exten => 301,1,Answer
+exten => 301,2,Dial(SIP/atelier)
+exten => 301,3,Hangup
+
+exten => 302,1,Answer
+exten => 302,2,Dial(SIP/hangar)
+exten => 302,3,Hangup
+
+exten => 401,1,Answer
+exten => 401,2,Dial(SIP/secretaire)
+exten => 401,3,Voicemail(401)
+exten => 401,4,Hangup
+
+
+exten => 501,1,Answer
+exten => 501,2,Dial(SIP/bureaucomptable1)
+exten => 501,3,Hangup
+
+[direction]
+
+exten => 301,1,Answer
+exten => 301,2,Dial(SIP/atelier)
+exten => 301,3,Hangup
+
+exten => 302,1,Answer
+exten => 302,2,Dial(SIP/hangar)
+exten => 302,3,Hangup
+
+exten => 401,1,Answer
+exten => 401,2,Dial(SIP/secretaire)
+exten => 401,3,Voicemail(401)
+exten => 401,4,Hangup
+
+exten => 501,1,Answer
+exten => 501,2,Dial(SIP/bureaucomptable1)
+exten => 501,3,Hangup
+
+exten => 601,1,Answer
+exten => 601,2,Dial(SIP/commerciaux)
+exten => 601,3,Hangup
+
+exten => 401,1,Answer
+exten => 401,2,Dial(SIP/secretaire)
+exten => 401,3,Hangup
+
+[secretaire]
+exten => 301,1,Answer
+exten => 301,2,Dial(SIP/atelier)
+exten => 301,3,Hangup
+
+exten => 302,1,Answer
+exten => 302,2,Dial(SIP/hangar)
+exten => 302,3,Hangup
+
+exten => 701,1,Answer
+exten => 701,2,Dial(SIP/direction)
+exten => 701,3,Voicemail(401)
+exten => 701,4,Hangup
+
+exten => 501,1,Answer
+exten => 501,2,Dial(SIP/bureaucomptable1)
+exten => 501,3,Hangup
+
+exten => 601,1,Answer
+exten => 601,2,Dial(SIP/commerciaux)
+exten => 601,3,Hangup
+
+
+
+
