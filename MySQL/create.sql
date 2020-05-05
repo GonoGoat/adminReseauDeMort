@@ -1,3 +1,4 @@
+CREATE DATABASE mailserver;
 GRANT SELECT ON mailserver.* TO 'admin'@'wt1-9.ephec-ti.be' IDENTIFIED BY 'Ephec123';
 FLUSH PRIVILEGES;
 USE mailserver;

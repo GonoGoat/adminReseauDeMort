@@ -1,12 +1,14 @@
 FROM ubuntu:latest
 
-RUN apt-get install mysql-server
-RUN mysqladmin -u root -p create mailserver
+RUN apt-get update && apt-get install -y mysql-server
+#RUN service mysql start
+#RUN mysqladmin root password "Ephec123"
+#RUN mysqladmin -u root -pEphec123 create mailserver
 
-COPY ./* ~
+COPY ./* /home/
 
-RUN mysql -u root -pEphec123 < ~/create.sql
-RUN mysql -u root -pEphec123 < ~/values.sql
+#RUN mysql -u root -pEphec123 < ~/create.sql
+#RUN mysql -u root -pEphec123 < ~/values.sql
 
 EXPOSE 3306
 
