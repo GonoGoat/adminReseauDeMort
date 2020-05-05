@@ -6,9 +6,9 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "woodytoys" {
+zone "local.wt1-9.ephec-ti.be" {
         type forward;
 	forward only;
-        forwarders { 51.178.40.72 ;};
+        forwarders { 172.17.0.3 ;};
 };
 

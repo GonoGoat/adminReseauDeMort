@@ -1,20 +1,24 @@
+#/etc/bind/zones
 ;
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     ns.woodytoys. admin.woodytoys. (
-                              3         ; Serial
+@       IN      SOA     ns.local.wt1-9.ephec-ti.be. admin.wt1-9.ephec-ti.be. (
+                              5         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
-; NS records
-        IN      NS      ns.woodytoys.
+;
 
-; name servers - A records
-ns.woodytoys.           IN      A               172.17.0.2
+; Name servers
+local.wt1-9.ephec-ti.be.    IN      NS      ns.local.wt1-9.ephec-ti.be.
 
-; hosts - A records
-erp.woodytoys.          IN      A               172.17.0.3
+; A records for name servers
+ns             IN      A       172.17.0.3
+
+; Other A records
+@               IN      A       172.17.0.4
+erp		IN	A	172.17.0.4
 
 

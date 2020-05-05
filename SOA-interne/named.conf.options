@@ -1,4 +1,5 @@
-ptions {
+	#/etc/bind
+options {
         directory "/var/cache/bind";
 
         // If there is a firewall between you and nameservers you want
@@ -21,18 +22,11 @@ ptions {
         dnssec-validation auto;
 
         auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
 
-        //acl "trusted" {
-        //      localhost;
-        //      51.178.41.136;
-        //      51.178.41.97;
-        //};
-
-        allow-query { 51.178.41.136; 51.178.41.97; };
         recursion no;
-        allow-recursion { 51.178.41.136; 51.178.41.97; };
-
-        version "Version indisponible";
+        allow-transfer { none; };
+	version "version indisponible";
 };
 
 

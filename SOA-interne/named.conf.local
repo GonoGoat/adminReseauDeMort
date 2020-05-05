@@ -1,4 +1,4 @@
-
+#/etc/bind
 //
 // Do any local configuration here
 //
@@ -7,8 +7,13 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "woodytoys" {
-        type master;
-        file "/etc/bind/zones/db.woodytoys";
+zone "local.wt1-9.ephec-ti.be" {
+    type master;
+    file "/etc/bind/zones/db.woodytoys";
+};
+
+zone "0.17.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.172.17.0";
 };
 
