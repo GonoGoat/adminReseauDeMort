@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y \
     systemd \
     postfix \
     net-tools \
-    telnet
+    telnet \
+    postfix-mysql \
+    dovecot-mysql \
 
 COPY conf /etc/dovecot/conf
 COPY auth /etc/dovecot/conf.d/auth
