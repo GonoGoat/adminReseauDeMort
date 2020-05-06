@@ -1,4 +1,3 @@
-#/etc/bind/zones
 ;
 ; BIND data file for local loopback interface
 ;
@@ -22,4 +21,14 @@ ns             IN      A       51.178.41.97
 www             IN      A       51.178.41.97
 b2b             IN      A       51.178.41.97
 
+;mail CNAME
+smtp            IN      CNAME   mail
+pop3            IN      CNAME   mail
+imap            IN      CNAME   mail
+
+;MX record
+wt1-9.ephec-ti.be.      1w              IN      MX      10 mail.wt1-9.ephec-ti.be.
+
+;mail A record
+mail            IN      A       51.178.41.97
 

@@ -31,7 +31,7 @@ RUN cat /etc/dovecot/conf > /etc/dovecot/dovecot.conf \
 #cat /etc/postfix/postfixconf > /etc/postfix/main.cf 
 
 
-CMD /etc/init.d/dovecot start
+#CMD /etc/init.d/dovecot start
 #CMD postfix start
 
 EXPOSE 143
