@@ -34,11 +34,11 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # information on enabling SSL in the smtp client.
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-myhostname = server.wt1-9.ephec-ti.be
+myhostname = mail.wt1-9.ephec-ti.be
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 relayhost =
-mynetworks = 127.17.0.0/16
+mynetworks = 172.17.0.0/24
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
