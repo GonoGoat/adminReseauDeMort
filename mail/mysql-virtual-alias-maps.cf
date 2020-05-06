@@ -1,0 +1,7 @@
+user = admin
+password = Ephec123
+hosts = 172.17.0.1
+dbname = mailserver
+query = SELECT destination FROM virtual_aliases WHERE source='%s'
+
+

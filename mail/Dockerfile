@@ -5,14 +5,14 @@ RUN apt-get update && apt-get install -y \
     dovecot-imapd \
     dovecot-pop3d \
     dovecot-lmtpd \
+    dovecot-mysql \
     nfs-common \
     vim \
     systemd \
     postfix \
-    net-tools \
-    telnet \
     postfix-mysql \
-    dovecot-mysql \
+    net-tools \
+    telnet
 
 COPY conf /etc/dovecot/conf
 COPY auth /etc/dovecot/conf.d/auth
@@ -20,8 +20,9 @@ COPY mail /etc/dovecot/conf.d/mail
 COPY master /etc/dovecot/conf.d/master
 COPY ssl /etc/dovecot/conf.d/ssl
 COPY main /etc/postfix/main
-
-
+COPY mysql-virtual-alias-maps.cf /etc/postfix/mysql-virtual-alias-maps.cf
+COPY mysql-virtual-mailbox-maps.cf /etc/postfix/mysql-virtual-mailbox-maps.cf
+COPY mysql-virtual-mailbox-domains.cf  /etc/postfix/mysql-virtual-mailbox-domains.cf 
 
 RUN cat /etc/dovecot/conf > /etc/dovecot/dovecot.conf \
 && cat /etc/dovecot/conf.d/auth > /etc/dovecot/conf.d/10-auth.conf \

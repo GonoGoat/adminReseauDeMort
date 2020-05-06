@@ -1,0 +1,7 @@
+user = admin
+password = Ephec123
+hosts = 172.17.0.1
+dbname = mailserver
+query = SELECT 1 FROM virtual_domains WHERE name='%s'
+
+
