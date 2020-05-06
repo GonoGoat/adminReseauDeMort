@@ -34,7 +34,7 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # information on enabling SSL in the smtp client.
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-myhostname = server1.woodytoys.be
+myhostname = server.wt1-9.ephec-ti.be
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 relayhost =
@@ -44,7 +44,7 @@ recipient_delimiter = +
 inet_interfaces = all
 inet_protocols = all
 mydestination = $myhostname localhost.$mydomain localhost $mydomain
-mydomain = woodytoys.be
+mydomain = wt1-9.ephec-ti.be
 myorigin = $mydomain
 home_mailbox = Maildir/
 #virtual_transport = lmtp:unix:private/dovecot-lmtp
