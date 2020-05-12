@@ -1,4 +1,19 @@
 [general]
+
+;config de base
+allowoverlap=no
+udpbindaddr=0.0.0.0
+bindport=5060
+udpenable=yes
+tcpenable=no
+tcpbindaddr=0.0.0.0
+transport=udp
+srvlookup=yes
+qualify=yes
+domain=172.17.0.2
+bindaddr=0.0.0.0
+allowguest=yes
+;config ajoutee
 language=fr
 allow=alaw
 allow=ulaw
@@ -7,15 +22,17 @@ allow=ulaw
 ;context=commerciaux
 ;context=direction
 domain=woodytoys.be
+
 [atelier]
-type=user
+type=peer
 context=ouvrier
 secret=atelier
 host=dynamic
 callerid= "atelier" <301>
+username=atelier
 
 [hangar]
-type=user
+type=peer
 context=ouvrier
 secret=hangar
 host=dynamic
@@ -23,6 +40,7 @@ callerid= "hangar" <302>
 
 [secretaire]
 type=friend
+context=secretaire
 secret=secretaire
 host=dynamic
 callerid= "secretaire" <401>
@@ -55,4 +73,11 @@ context=direction
 secret=direction
 host=dynamic
 callerid= "direction" <701>
+
+[outside]
+type=friend
+context=outside
+secret=outside
+host=dynamic
+
 

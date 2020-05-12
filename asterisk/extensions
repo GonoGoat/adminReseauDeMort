@@ -1,114 +1,155 @@
 [general]
 
 
-
 [ouvrier]
+
+
 
 exten => 100,1,noOp(test)
 exten => 100,2,Hangup
 
 exten => 401,1,Answer
-exten => 401,2,Dial(SIP/secretaire)
-exten => 401,3,Voicemail(401)
+exten => 401,2,Dial(SIP/secretaire,5)
+exten => 401,3,Voicemail(${EXTEN})
 exten => 401,4,Hangup
 
 exten => 501,1,Answer
-exten => 501,2,Dial(SIP/bureaucomptable1)
-exten => 501,3,Hangup
+exten => 501,2,Dial(SIP/bureaucomptable1,5)
+exten => 501,3,Voicemail(${EXTEN})
+exten => 501,4,Hangup
 
 exten => 601,1,Answer
-exten => 601,2,Dial(SIP/commerciaux)
-exten => 601,3,Hangup
+exten => 601,2,Dial(SIP/commerciaux,5)
+exten => 601,3,Voicemail(${EXTEN})
+exten => 601,4,Hangup 
+
+exten => 301,1,VoiceMailMain(301)
+exten => 301,2,Hangup
+
+exten => 302,1,VoiceMailMain(302)
+exten => 302,2,Hangup
+
 
 [comptable]
 
 exten => 301,1,Answer
-exten => 301,2,Dial(SIP/atelier)
-exten => 301,3,Hangup
+exten => 301,2,Dial(SIP/atelier,5)
+exten => 301,3,Voicemail(${EXTEN})
+exten => 301,4,Hangup
 
 exten => 302,1,Answer
-exten => 302,2,Dial(SIP/hangar)
-exten => 302,3,Hangup
+exten => 302,2,Dial(SIP/hangar,5)
+exten => 302,3,Voicemail(${EXTEN})
+exten => 302,4,Hangup
 
 exten => 601,1,Answer
-exten => 601,2,Dial(SIP/commerciaux)
-exten => 601,3,Hangup
+exten => 601,2,Dial(SIP/commerciaux,5)
+exten => 601,3,Voicemail(${EXTEN})
+exten => 601,4,Hangup
 
 exten => 401,1,Answer
-exten => 401,2,Dial(SIP/secretaire)
-exten => 401,3,Voicemail(401)
+exten => 401,2,Dial(SIP/secretaire,5)
+exten => 401,3,Voicemail(${EXTEN})
 exten => 401,4,Hangup
 
+exten => 501,1,VoiceMailMain(501)
+exten => 501,2,Hangup
+
+exten => 502,1,VoiceMailMain(502)
+exten => 502,2,Hangup
 
 [commerciaux]
 
+
+username=601
+
 exten => 301,1,Answer
-exten => 301,2,Dial(SIP/atelier)
-exten => 301,3,Hangup
+exten => 301,2,Dial(SIP/atelier,5)
+exten => 301,3,Voicemail(${EXTEN})
+exten => 301,4,Hangup
 
 exten => 302,1,Answer
-exten => 302,2,Dial(SIP/hangar)
-exten => 302,3,Hangup
+exten => 302,2,Dial(SIP/hangar,5)
+exten => 302,3,Voicemail(${EXTEN})
+exten => 302,4,Hangup
 
 exten => 401,1,Answer
-exten => 401,2,Dial(SIP/secretaire)
-exten => 401,3,Voicemail(401)
+exten => 401,2,Dial(SIP/secretaire,5)
+exten => 401,3,Voicemail(${EXTEN})
 exten => 401,4,Hangup
 
 
 exten => 501,1,Answer
-exten => 501,2,Dial(SIP/bureaucomptable1)
-exten => 501,3,Hangup
+exten => 501,2,Dial(SIP/bureaucomptable1,5)
+exten => 501,3,Voicemail(${EXTEN})
+exten => 501,4,Hangup
+
+
+exten => 601,1,VoiceMailMain(601)
+exten => 601,2,Hangup
+
+
+
 
 [direction]
 
 exten => 301,1,Answer
-exten => 301,2,Dial(SIP/atelier)
-exten => 301,3,Hangup
+exten => 301,2,Dial(SIP/atelier,5)
+exten => 301,3,Voicemail(${EXTEN})
+exten => 301,4,Hangup
 
 exten => 302,1,Answer
-exten => 302,2,Dial(SIP/hangar)
-exten => 302,3,Hangup
+exten => 302,2,Dial(SIP/hangar,5)
+exten => 302,3,Voicemail(${EXTEN})
+exten => 302,4,Hangup
 
 exten => 401,1,Answer
-exten => 401,2,Dial(SIP/secretaire)
-exten => 401,3,Voicemail(401)
+exten => 401,2,Dial(SIP/secretaire,5)
+exten => 401,3,Voicemail(${EXTEN})
 exten => 401,4,Hangup
 
 exten => 501,1,Answer
-exten => 501,2,Dial(SIP/bureaucomptable1)
-exten => 501,3,Hangup
+exten => 501,2,Dial(SIP/bureaucomptable1,5)
+exten => 501,3,Voicemail(${EXTEN})
+exten => 501,4,Hangup
 
 exten => 601,1,Answer
-exten => 601,2,Dial(SIP/commerciaux)
-exten => 601,3,Hangup
+exten => 601,2,Dial(SIP/commerciaux,5)
+exten => 601,3,Voicemail(${EXTEN})
+exten => 601,4,Hangup
 
-exten => 401,1,Answer
-exten => 401,2,Dial(SIP/secretaire)
-exten => 401,3,Hangup
+exten => 701,1,VoiceMailMain(701)
+exten => 701,2,Hangup
+
 
 [secretaire]
 exten => 301,1,Answer
-exten => 301,2,Dial(SIP/atelier)
-exten => 301,3,Hangup
+exten => 301,2,Dial(SIP/atelier,5)
+exten => 301,3,Voicemail(${EXTEN})
+exten => 301,4,Hangup
 
 exten => 302,1,Answer
-exten => 302,2,Dial(SIP/hangar)
-exten => 302,3,Hangup
+exten => 302,2,Dial(SIP/hangar,5)
+exten => 302,3,Voicemail(${EXTEN})
+exten => 302,4,Hangup
 
 exten => 701,1,Answer
-exten => 701,2,Dial(SIP/direction)
-exten => 701,3,Voicemail(401)
+exten => 701,2,Dial(SIP/direction,5)
+exten => 701,3,Voicemail(${EXTEN})
 exten => 701,4,Hangup
 
 exten => 501,1,Answer
-exten => 501,2,Dial(SIP/bureaucomptable1)
-exten => 501,3,Hangup
+exten => 501,2,Dial(SIP/bureaucomptable1,5)
+exten => 501,3,Voicemail(${EXTEN})
+exten => 501,4,Hangup
 
 exten => 601,1,Answer
-exten => 601,2,Dial(SIP/commerciaux)
-exten => 601,3,Hangup
+exten => 601,2,Dial(SIP/commerciaux,5)
+exten => 601,3,Voicemail(${EXTEN})
+exten => 601,4,Hangup
 
+exten => 401,1,VoiceMailMain(401)
+exten => 401,2,Hangup
 
 
 

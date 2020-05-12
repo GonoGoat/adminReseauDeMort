@@ -33,5 +33,6 @@ RUN cd asterisk-17.3.0
 
 
 
+#module load chan_sip.so =>ds -rvvv pour la commande sip show peers
 
 
