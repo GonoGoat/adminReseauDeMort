@@ -43,7 +43,7 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 inet_protocols = all
-mydestination = $myhostname localhost.$mydomain localhost $mydomain
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 mydomain = wt1-9.ephec-ti.be
 myorigin = $mydomain
 home_mailbox = Maildir/
@@ -51,5 +51,6 @@ home_mailbox = Maildir/
 #virtual_mailbox_domains = mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf
 #virtual_mailbox_maps = mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
 #virtual_alias_maps = mysql:/etc/postfix/mysql-virtual-alias-maps.cf
-
+virtual_alias_domains = wt1-9.ephec-ti.be
+virtual_alias_maps = hash:/etc/postfix/virtual
 
