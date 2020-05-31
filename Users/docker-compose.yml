@@ -1,91 +1,96 @@
 version : '2'
 
 services :
-  
-    Bureau_direction:  
-        build: .
-        container_name: bureau_dir
-        networks:
-            net_bureau_dir:
-                ipv4_address: 172.17.5.1
 
-    Bureau_secretaire:  
+    hangar:  
         build: .
-        container_name: bureau_sec
-        networks:
-            net_bureau_dir:
-                ipv4_address: 172.17.5.2
-
-    Bureau_comm1:
-        build: .
-        container_name: bureau_cm1
-        networks:
-            net_bureau_comm:
-                ipv4_address: 172.17.4.1
-    Bureau_comm2:
-        build: .
-        container_name: bureau_cm2
-        networks:
-            net_bureau_comm:
-                ipv4_address: 172.17.4.2
-    Bureau_compta:
-        build: .
-        container_name: bureau_compta
-        networks:
-            net_bureau_compta:
-                ipv4_address: 172.17.3.1
-
-    Prod:
-        build: .
-        container_name: prod
-        networks:
-            net_prod:
-                ipv4_address: 172.17.2.1
-
-    Hangar:  
-        build: .
+        image: gonogoat/admin1-9
         container_name: hangar
         networks:
             net_hangar:
-                ipv4_address: 172.17.1.1
+                ipv4_address: 172.18.1.1
+
+    prod:
+        build: .
+        image: gonogoat/admin1-9
+        container_name: prod
+        networks:
+            net_prod:
+                ipv4_address: 172.18.2.1
+
+    bureau_compta:
+        build: .
+        image: gonogoat/admin1-9
+        container_name: bureau_compta
+        networks:
+            net_bureau_compta:
+                ipv4_address: 172.18.3.1
+
+    bureau_comm1:
+        build: .
+        image: gonogoat/admin1-9
+        container_name: bureau_cm1
+        networks:
+            net_bureau_comm:
+                ipv4_address: 172.18.4.1
+
+    bureau_comm2:
+        build: .
+        image: gonogoat/admin1-9
+        container_name: bureau_cm2
+        networks:
+            net_bureau_comm:
+                ipv4_address: 172.18.4.2
+  
+    bureau_direction:  
+        build: .
+        image: gonogoat/admin1-9
+        container_name: bureau_dir
+        networks:
+            net_bureau_dir:
+                ipv4_address: 172.18.5.1
+
+    bureau_secretaire:  
+        build: .
+        image: gonogoat/admin1-9
+        container_name: bureau_sec
+        networks:
+            net_bureau_dir:
+                ipv4_address: 172.18.5.2
 
 networks:
-    net_bureau_dir:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 172.17.5.0/24
-                  gateway: 172.17.5.254
-
-    net_bureau_comm
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 172.17.4.0/24
-                  gateway: 172.17.4.254
-
-    net_bureau_compta:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 172.17.3.0/24  
-                  gateway: 172.17.3.254
-
-    net_prod:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 172.17.2.0/24  
-                  gateway: 172.17.2.254
-
     net_hangar:
         driver: bridge
         ipam:
             driver: default
             config:
-                - subnet: 172.17.1.0/24  
-                  gateway: 172.17.1.254
+                - subnet: 172.18.1.0/24  
+                  gateway: 172.18.1.254
+    net_prod:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.2.0/24  
+                  gateway: 172.18.2.254
+    net_bureau_compta:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.3.0/24  
+                  gateway: 172.18.3.254
+    net_bureau_comm:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.4.0/24
+                  gateway: 172.18.4.254
+    net_bureau_dir:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.5.0/24
+                  gateway: 172.18.5.254
