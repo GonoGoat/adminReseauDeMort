@@ -37,4 +37,4 @@ RUN cat /etc/dovecot/conf > /etc/dovecot/dovecot.conf \
 EXPOSE 143
 EXPOSE 110
 EXPOSE 25
-
+EXPOSE 587

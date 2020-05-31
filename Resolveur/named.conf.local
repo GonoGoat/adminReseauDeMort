@@ -12,3 +12,8 @@ zone "local.wt1-9.ephec-ti.be" {
         forwarders { 172.17.0.3 ;};
 };
 
+zone "0.17.172.in-addr.arpa" {
+	type forward;
+	forward only;
+        forwarders { 172.17.0.3 ;};
+};

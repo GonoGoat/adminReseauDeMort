@@ -12,8 +12,3 @@ zone "wt1-9.ephec-ti.be" {
     file "/etc/bind/zones/db.woodytoys";
 };
 
-zone "2.17.172.in-addr.arpa" {
-    type master;
-    file "/etc/bind/zones/db.172.17.0";
-};
-

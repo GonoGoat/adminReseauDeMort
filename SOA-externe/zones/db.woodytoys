@@ -32,3 +32,7 @@ wt1-9.ephec-ti.be.      1w              IN      MX      10 mail.wt1-9.ephec-ti.b
 ;mail A record
 mail            IN      A       51.178.41.97
 
+; VOIP record
+_sip._udp	SRV     0       0       5060        sip 
+_sip._tcp	SRV     0       0       5060        sip
+sip			IN      A      	51.178.40.72
