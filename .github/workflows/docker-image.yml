@@ -18,31 +18,31 @@ jobs:
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
   
     - name: Construction image Docker Web-interne
-      run: docker build ./Web-interne --file Dockerfile --tag gonogoat/admin1-9:webi
+      run: docker build ./Web-interne -t gonogoat/admin1-9:webi
     - name: Push image
       run: docker push gonogoat/admin1-9:webi
       
     - name: Construction image Docker Web-externe
-      run: docker build ./Web-externe --file Dockerfile --tag gonogoat/admin1-9:webe
+      run: docker build ./Web-externe -t gonogoat/admin1-9:webe
     - name: Push image
       run: docker push gonogoat/admin1-9:webe
 
     - name: Construction image Docker Résolveur DNS
-      run: docker build ./Resolveur --file Dockerfile --tag gonogoat/admin1-9:res
+      run: docker build ./Resolveur -t gonogoat/admin1-9:res
     - name: Push image
       run: docker push gonogoat/admin1-9:res
     
     - name: Construction image Docker SOA interne
-      run: docker build ./SOA-interne --file Dockerfile --tag gonogoat/admin1-9:soai
+      run: docker build ./SOA-interne -t gonogoat/admin1-9:soai
     - name: Push image
       run: docker push gonogoat/admin1-9:soai
     
     - name: Construction image Docker SOA externe
-      run: docker build ./SOA-externe --file Dockerfile --tag gonogoat/admin1-9:soae
+      run: docker build ./SOA-externe -t gonogoat/admin1-9:soae
     - name: Push image
       run: docker push gonogoat/admin1-9:soae
     
     - name: Construction image Docker Mail
-      run: docker build ./mail --file Dockerfile --tag gonogoat/admin1-9:mail
+      run: docker build ./mail -t gonogoat/admin1-9:mail
     - name: Push image
       run: docker push gonogoat/admin1-9:mail
