@@ -1,8 +1,15 @@
 FROM ubuntu:latest
-RUN apt update
-RUN apt install -y bind9
-EXPOSE 53 53/udp
+RUN apt-get update -y
+RUN apt-get install -y \bind9 \nano
+ADD * /home/
+ADD zones /etc/bind/zones
+RUN cat /home/hosts > /etc/hosts \
+	&& cat /home/named.conf.local > /etc/bind/named.conf.local \
+	&& cat /home/named.conf.options > /etc/bind/named.conf.options \
+	&& cat /home/resolv.conf > /etc/resolv.conf
+
+EXPOSE 53 53/udp 53/tcp
 
 
 #Commande :
-# (sudo) docker run -it -p 53:53/udp --name=<...> -h ns dockermaispaslouvrier/repo_admin_sys:bind
+# (sudo) docker run -it --name=<...> -h ns gonogoat/admin1-9:soai
