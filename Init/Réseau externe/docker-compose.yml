@@ -1,0 +1,49 @@
+version : '2'
+
+services :
+
+    soa:
+        image: gonogoat/admin1-9:soae
+        container_name: soa
+        hostname: ns
+        tty: true
+        ports:
+          - "53:53/tcp"
+          - "53:53/udp"
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.2
+
+    web:
+        image: gonogoat/admin1-9:webe
+        container_name: web
+        tty: true
+        ports:
+          - "80:80/tcp"
+          - "80:80/udp"
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.3
+
+    mail:
+        image: gonogoat/admin1-9:mail
+        container_name: mail
+        tty: true
+        ports: 
+          - "25:25"
+          - "110:110"
+          - "143:143"
+          - "587:587"
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.4
+
+networks:
+    woodytoys:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.0.0/24
+                  gateway: 172.18.0.1
+
