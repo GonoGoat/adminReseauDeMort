@@ -17,8 +17,8 @@ intranet.wt1-9.ephec-ti.be.    IN      NS      ns.intranet.wt1-9.ephec-ti.be.
 ; A records for name servers
 ns             IN      A       172.18.0.3
 
-; Other A records
+; WWW A records
 @               IN      A       172.18.0.4
-erp		IN	A	172.18.0.4
+erp             IN      A       172.18.0.4
 
 

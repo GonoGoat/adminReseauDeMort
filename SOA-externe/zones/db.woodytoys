@@ -38,7 +38,7 @@ imap            IN      CNAME   mail
 wt1-9.ephec-ti.be.      1w              IN      MX      10 mail.wt1-9.ephec-ti.be.
 
 ;mail A record
-mail            IN      AAAA    2001:41d0:304:200::f3
+mail            IN      A    51.178.41.97
 
 ;mail AAAA record
 mail            IN      AAAA    2001:41d0:304:200::f3
