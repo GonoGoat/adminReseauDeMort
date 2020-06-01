@@ -1,0 +1,48 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to DockerHub Registry
+      run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+  
+    - name: Construction image Docker Web-interne
+      run: docker build Web-interne --file Dockerfile --tag gonogoat/admin1-9:webi
+    - name: Push image
+      run: docker push gonogoat/admin1-9:webi
+      
+    - name: Construction image Docker Web-externe
+      run: docker build Web-externe --file Dockerfile --tag gonogoat/admin1-9:webe
+    - name: Push image
+      run: docker push gonogoat/admin1-9:webe
+
+    - name: Construction image Docker Résolveur DNS
+      run: docker build Resolveur --file Dockerfile --tag gonogoat/admin1-9:res
+    - name: Push image
+      run: docker push gonogoat/admin1-9:res
+    
+    - name: Construction image Docker SOA interne
+      run: docker build SOA-interne --file Dockerfile --tag gonogoat/admin1-9:soai
+    - name: Push image
+      run: docker push gonogoat/admin1-9:soai
+    
+    - name: Construction image Docker SOA externe
+      run: docker build SOA-externe --file Dockerfile --tag gonogoat/admin1-9:soae
+    - name: Push image
+      run: docker push gonogoat/admin1-9:soae
+    
+    - name: Construction image Docker Mail
+      run: docker build mail --file Dockerfile --tag gonogoat/admin1-9:mail
+    - name: Push image
+      run: docker push gonogoat/admin1-9:mail
