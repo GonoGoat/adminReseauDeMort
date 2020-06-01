@@ -17,15 +17,15 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
   
-    - name: Construction image Docker Web-interne
-      run: docker build ./Web-interne -t gonogoat/admin1-9:webi
-    - name: Push image
-      run: docker push gonogoat/admin1-9:webi
+   # - name: Construction image Docker Web-interne
+    #  run: docker build ./Web-interne -t gonogoat/admin1-9:webi
+   # - name: Push image
+    #  run: docker push gonogoat/admin1-9:webi
       
-    - name: Construction image Docker Web-externe
-      run: docker build ./Web-externe -t gonogoat/admin1-9:webe
-    - name: Push image
-      run: docker push gonogoat/admin1-9:webe
+    #- name: Construction image Docker Web-externe
+     # run: docker build ./Web-externe -t gonogoat/admin1-9:webe
+    #- name: Push image
+     # run: docker push gonogoat/admin1-9:webe
 
     - name: Construction image Docker Résolveur DNS
       run: docker build ./Resolveur -t gonogoat/admin1-9:res

@@ -16,10 +16,18 @@ wt1-9.ephec-ti.be.    IN      NS      ns.wt1-9.ephec-ti.be.
 ; A records for name servers
 ns             IN      A       51.178.41.97
 
-; Other A records
+; AAAA records for ns
+ns	       IN      AAAA    2001:41d0:304:200::f3
+
+; WWW A records
 @               IN      A       51.178.41.97
 www             IN      A       51.178.41.97
 b2b             IN      A       51.178.41.97
+
+; WWW AAAA records
+@               IN      AAAA    2001:41d0:304:200::f3
+www             IN      AAAA    2001:41d0:304:200::f3
+b2b             IN      AAAA    2001:41d0:304:200::f3
 
 ;mail CNAME
 smtp            IN      CNAME   mail
@@ -30,9 +38,14 @@ imap            IN      CNAME   mail
 wt1-9.ephec-ti.be.      1w              IN      MX      10 mail.wt1-9.ephec-ti.be.
 
 ;mail A record
-mail            IN      A       51.178.41.97
+mail            IN      AAAA    2001:41d0:304:200::f3
+
+;mail AAAA record
+mail            IN      AAAA    2001:41d0:304:200::f3
+
 
 ; VOIP record
 _sip._udp	SRV     0       0       5060        sip 
 _sip._tcp	SRV     0       0       5060        sip
-sip			IN      A      	51.178.40.72
+sip		IN      A	51.178.40.72
+sip		IN	AAAA    2001:41d0:304:200::f4
