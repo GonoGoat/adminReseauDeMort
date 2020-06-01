@@ -24,6 +24,12 @@ exten => 601,2,Dial(SIP/commerciaux,5)
 exten => 601,3,Voicemail(${EXTEN})
 exten => 601,4,Hangup 
 
+exten => 701,1,Answer
+exten => 701,2,Dial(SIP/secretaire,5)
+exten => 701,3,Voicemail(${EXTEN})
+exten => 701,4,Hangup
+
+
 exten => 301,1,VoiceMailMain(301)
 exten => 301,2,Hangup
 
@@ -52,6 +58,13 @@ exten => 401,1,Answer
 exten => 401,2,Dial(SIP/secretaire,5)
 exten => 401,3,Voicemail(${EXTEN})
 exten => 401,4,Hangup
+
+
+exten => 701,1,Answer
+exten => 701,2,Dial(SIP/secretaire,5)
+exten => 701,3,Voicemail(${EXTEN})
+exten => 701,4,Hangup
+
 
 exten => 801,1,Answer
 exten => 801,2,Dial(SIP/outside,10)
@@ -99,6 +112,10 @@ exten => 501,3,Goto(check,${DIALSTATUS},1)
 exten => 501,4,Voicemail(${EXTEN})
 exten => 501,5,Hangup
 
+exten => 701,1,Answer
+exten => 701,2,Dial(SIP/secretaire,5)
+exten => 701,3,Voicemail(${EXTEN})
+exten => 701,4,Hangup
 
 
 exten => 801,1,Answer
@@ -179,9 +196,9 @@ exten => 401,2,Hangup
 
 
 [outside]
-exten => ___,1,Answer
-exten => ___,2,Dial(SIP/secretaire,5)
-exten => ___,3,Voicemail(${EXTEN})
-exten => ___,4,Hangup
+exten => _.,1,Answer
+exten => _.,2,Dial(SIP/secretaire,5)
+exten => _.,3,Voicemail(${EXTEN})
+exten => _.,4,Hangup
 
 
