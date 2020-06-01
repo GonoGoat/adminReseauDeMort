@@ -1,4 +1,4 @@
-ptions {
+options {
         directory "/var/cache/bind";
 
         // If there is a firewall between you and nameservers you want
@@ -23,9 +23,9 @@ ptions {
         auth-nxdomain no;    # conform to RFC1035
 	listen-on-v6 { any; };
 
-        allow-query { 172.17.0.0/16; };
+        allow-query { 172.17.0.0/24; 172.18.0.0/24; };
         recursion yes;
-        allow-recursion { 172.17.0.0/16; };
+        allow-recursion { 172.17.0.0/16; 172.18.0.0/24;};
 
         version "Version indisponible";
         querylog yes;

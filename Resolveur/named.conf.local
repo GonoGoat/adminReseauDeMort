@@ -6,14 +6,14 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "local.wt1-9.ephec-ti.be" {
+zone "intranet.wt1-9.ephec-ti.be" {
         type forward;
 	forward only;
-        forwarders { 172.17.0.3 ;};
+        forwarders { 172.18.0.3 ;};
 };
 
-zone "0.17.172.in-addr.arpa" {
+zone "0.18.172.in-addr.arpa" {
 	type forward;
 	forward only;
-        forwarders { 172.17.0.3 ;};
+        forwarders { 172.18.0.3 ;};
 };

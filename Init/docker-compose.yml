@@ -1,0 +1,95 @@
+version : '2'
+
+services :
+
+    res:
+        image: gonogoat/admin1-9:res
+        container_name: res
+	hostname: ns
+        tty: true
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.2
+
+    soa:
+        image: gonogoat/admin1-9:soai
+        container_name: soa
+	hostname: ns
+        tty: true
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.3
+
+    apache:
+        image: gonogoat/admin1-9:webi
+        container_name: web
+        tty: true
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.4
+
+    bureau_direction:  
+        build: .
+        container_name: bureau_dir
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.251
+        tty: true
+
+    bureau_secretaire:  
+        build: .
+        container_name: bureau_sec
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.250
+        tty: true
+
+    bureau_comm1:
+        build: .
+        container_name: bureau_cm1
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.200
+        tty: true
+
+    bureau_comm2:
+        build: .
+        container_name: bureau_cm2
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.201
+        tty: true
+
+    bureau_compta:
+        build: .
+        container_name: bureau_compta
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.150
+        tty: true
+
+    prod:
+        build: .
+        container_name: prod
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.100
+        tty: true
+
+    hangar:  
+        build: .
+        container_name: hangar
+        networks:
+            woodytoys:
+                ipv4_address: 172.18.0.50
+        tty: true
+
+networks:
+    woodytoys:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.18.0.0/24
+                  gateway: 172.18.0.1
+
