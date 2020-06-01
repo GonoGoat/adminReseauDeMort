@@ -5,8 +5,7 @@ ADD * /home/
 ADD zones /etc/bind/zones
 RUN cat /home/hosts > /etc/hosts \
 	&& cat /home/named.conf.local > /etc/bind/named.conf.local \
-	&& cat /home/named.conf.options > /etc/bind/named.conf.options \
-
+	&& cat /home/named.conf.options > /etc/bind/named.conf.options
 
 EXPOSE 53 53/udp 53/tcp
 
