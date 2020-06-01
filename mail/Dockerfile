@@ -11,30 +11,31 @@ RUN apt-get update && apt-get install -y \
     postfix \
     net-tools \
     telnet
-
+COPY virtual /etc/postfix/virtual
 COPY conf /etc/dovecot/conf
 COPY auth /etc/dovecot/conf.d/auth
 COPY mail /etc/dovecot/conf.d/mail
 COPY master /etc/dovecot/conf.d/master
 COPY ssl /etc/dovecot/conf.d/ssl
 COPY main /etc/postfix/main
-#COPY mysql-virtual-alias-maps.cf /etc/postfix/mysql-virtual-alias-maps.cf
-#COPY mysql-virtual-mailbox-maps.cf /etc/postfix/mysql-virtual-mailbox-maps.cf
-#COPY mysql-virtual-mailbox-domains.cf  /etc/postfix/mysql-virtual-mailbox-domains.cf 
+
 
 RUN cat /etc/dovecot/conf > /etc/dovecot/dovecot.conf \
 && cat /etc/dovecot/conf.d/auth > /etc/dovecot/conf.d/10-auth.conf \
 && cat /etc/dovecot/conf.d/ssl > /etc/dovecot/conf.d/10-ssl.conf \
 && cat /etc/dovecot/conf.d/master > /etc/dovecot/conf.d/10-master.conf \
 && cat /etc/dovecot/conf.d/mail > /etc/dovecot/conf.d/10-mail.conf \
-&& cat /etc/postfix/main > /etc/postfix/main.cf 
-#cat /etc/postfix/postfixconf > /etc/postfix/main.cf 
+&& cat /etc/postfix/main > /etc/postfix/main.cf \
+&& cd /etc/postfix \
+&& postmap /etc/postfix/virtual
 
 
-#CMD /etc/init.d/dovecot start
+
+CMD /etc/init.d/dovecot start
 #CMD postfix start
 
 EXPOSE 143
 EXPOSE 110
 EXPOSE 25
 EXPOSE 587
+
